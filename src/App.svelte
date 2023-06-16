@@ -1,7 +1,5 @@
 <script lang="ts">
   import { Link, Router, Route } from "svelte-routing";
-  import svelteLogo from "./assets/svelte.svg";
-  import viteLogo from "/vite.svg";
   import Counter from "./lib/Counter.svelte";
   import Home from "./routes/Home.svelte";
   import ProductDetail from "./routes/ProductDetail.svelte";
@@ -11,7 +9,6 @@
 </script>
 
 <main>
-
   <Router {url}>
     <nav>
       <Link to="/home">Home</Link>
