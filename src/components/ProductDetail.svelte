@@ -42,7 +42,7 @@
 {#if product}
   <div class="py-4 mx-3 flex flex-col">
     <h1 class="bg-slate-200 rounded-xl p-1 text-2xl font-bold">Product</h1>
-    <h1 class="text-green justify-center">{product.brands}</h1>
+    <h1 class="justify-center">{product.brands}</h1>
     <img class="mt-3 w-40 justify-center" src={product.image_url} alt="Scanned Product" />
     <h3 class="mt-3">Those things in {product.brands} can kill you</h3>
     <h1 class="text-2xl py-3 font-bold">Profile</h1>
