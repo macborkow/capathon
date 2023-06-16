@@ -1,9 +1,13 @@
 <script>
     import { BrowserMultiFormatReader } from '@zxing/library';
+		import { createEventDispatcher } from 'svelte';
 
     let videoRef;
     let codeReader;
     let videoStream;
+    let code = '';
+
+		const dispatch = createEventDispatcher();
 
     async function startScanning() {
     codeReader = new BrowserMultiFormatReader();
@@ -14,6 +18,10 @@
         .decodeFromVideoElement(videoRef)
         .then((result) => {
             console.log('Scanned QR code:', result.text);
+            code = result.text;
+						dispatch('code', {
+							code
+						});
         })
         .catch((err) => {
             console.error('Error scanning QR code:', err);
