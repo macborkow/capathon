@@ -1,5 +1,5 @@
 <script>
-  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  if (navigator.mediaDevices?.getUserMedia) {
     navigator.mediaDevices
       .getUserMedia({ video: true })
       .then(function (stream) {
