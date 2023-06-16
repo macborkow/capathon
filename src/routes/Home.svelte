@@ -14,3 +14,4 @@
 <span class="text-beige">This is beige text!</span>
 
 <a href="/productdetail">ProductDetail</a>
+<a href="/overview">Overview</a>

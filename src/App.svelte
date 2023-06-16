@@ -5,6 +5,7 @@
   import Counter from "./lib/Counter.svelte";
   import Home from "./routes/Home.svelte";
   import ProductDetail from "./routes/ProductDetail.svelte";
+  import Overview from "./routes/Overview.svelte";
 
   export let url = "/";
 </script>
@@ -15,10 +16,12 @@
     <nav>
       <Link to="/home">Home</Link>
       <Link to="/productdetail">Productdetail</Link>
+      <Link to="/overview">Overview</Link>
     </nav>
     <div>
       <Route path="/home" component={Home} />
       <Route path="/productdetail" component={ProductDetail} />
+      <Route path="/overview" component={Overview} />
     </div>
   </Router>
 </main>
