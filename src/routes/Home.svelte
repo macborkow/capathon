@@ -1,8 +1,25 @@
 <script>
-  import Camera from "../components/Camera.svelte";
   import Scanner from "../components/Scanner.svelte";
+  import ProductDetail from "../components/ProductDetail.svelte";
+	let foundCode = '';
+	function magic(event) {
+		foundCode = event.detail.code
+	}
 </script>
 
-<div>
-  <Scanner />
+{#if !foundCode}
+<Scanner on:code={magic}/>
+{:else}
+<ProductDetail code={foundCode} />
+{/if}
+
+<div class="floating">
+	<a href="/productdetail">ProductDetail</a>
+	<a href="/overview">Overview</a>
 </div>
+
+<style>
+	.floating {
+		position: absolute;
+	}
+</style>

@@ -1,31 +1,37 @@
 <script>
     import { BrowserMultiFormatReader } from "@zxing/library";
     import { onMount } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 
     let videoRef;
     let codeReader;
     let videoStream;
+    let code = '';
+
+		const dispatch = createEventDispatcher();
 
     startScanning()
 
     async function startScanning() {
-        codeReader = new BrowserMultiFormatReader();
-        try {
-            videoStream = await navigator.mediaDevices.getUserMedia({
-                video: true,
-            });
-            videoRef.srcObject = videoStream;
-            codeReader
-                .decodeFromVideoElement(videoRef)
-                .then((result) => {
-                    console.log("Scanned QR code:", result.text);
-                })
-                .catch((err) => {
-                    console.error("Error scanning QR code:", err);
-                });
-        } catch (err) {
-            console.error("Error starting camera:", err);
-        }
+    codeReader = new BrowserMultiFormatReader();
+    try {
+        videoStream = await navigator.mediaDevices.getUserMedia({ video: true });
+        videoRef.srcObject = videoStream;
+        codeReader
+        .decodeFromVideoElement(videoRef)
+        .then((result) => {
+            console.log('Scanned QR code:', result.text);
+            code = result.text;
+						dispatch('code', {
+							code
+						});
+        })
+        .catch((err) => {
+            console.error('Error scanning QR code:', err);
+        });
+    } catch (err) {
+        console.error('Error starting camera:', err);
+    }
     }
 
     function stopScanning() {
@@ -52,13 +58,4 @@
 <div class="overflow-hidden">
     <video style="max-width: none; height: 100vh" id="video" bind:this={videoRef} autoplay />
 </div>
-
-
-<style>
-    /* Add necessary styles for the video element */
-    /* video {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-    } */
-</style>
+  
