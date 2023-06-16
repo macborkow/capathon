@@ -1,19 +1,24 @@
 <script lang="ts">
+  import { Link, Router, Route } from "svelte-routing";
   import svelteLogo from "./assets/svelte.svg";
   import viteLogo from "/vite.svg";
   import Counter from "./lib/Counter.svelte";
-  import Camera from "./Camera.svelte";
+  import Home from "./routes/Home.svelte";
+  import ProductDetail from "./routes/ProductDetail.svelte";
+
+  export let url = "/";
 </script>
 
 <main>
-  <div class="bg-green">This is green</div>
-  <div class="bg-brown">
-    Hallo
-    <span class="text-peach">Example!</span>
-  </div>
 
-  <span class="text-brown">Example!</span>
-  <span class="text-beige">This is beige text!</span>
-
-  <Camera />
+  <Router {url}>
+    <nav>
+      <Link to="/home">Home</Link>
+      <Link to="/productdetail">Productdetail</Link>
+    </nav>
+    <div>
+      <Route path="/home" component={Home} />
+      <Route path="/productdetail" component={ProductDetail} />
+    </div>
+  </Router>
 </main>
