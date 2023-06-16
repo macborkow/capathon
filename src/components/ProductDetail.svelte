@@ -13,15 +13,16 @@
 			}
 		});
 
-		// Convert both arrays to lowercase
+    // Convert both arrays to lowercase
     let chosenAllergens = JSON.parse(localStorage.getItem('allergens'))
-		chosenAllergens = chosenAllergens.map(allergen => allergen.toLowerCase());
-		apiText = apiText.map(text => text.toLowerCase());
+        if(chosenAllergens) {
+            chosenAllergens = chosenAllergens.map(allergen => allergen.toLowerCase());
+            apiText = apiText.map(text => text.toLowerCase());
 
-		// Find the common elements in the two arrays
-		const commonElements = chosenAllergens.filter(allergen => apiText.includes(allergen));
-		crossReferenced = commonElements;
-  
+            // Find the common elements in the two arrays
+            const commonElements = chosenAllergens.filter(allergen => apiText.includes(allergen));
+            crossReferenced = commonElements;
+        }
   }
   async function fetchData() {
     try {
@@ -39,11 +40,12 @@
 </script>
 
 {#if product}
-<h1>{product.brands}</h1>
-<div class="py-4 flex justify-center items-center colums-2">
-    <img class="w-20" src={product.image_url} alt="Scanned Product">
+<div class="py-4 mx-3 flex flex-col">
+    <h1 class="bg-slate-200 rounded-xl p-1 text-2xl font-bold">Product</h1>
+    <h1 class="text-green justify-center">{product.brands}</h1>
+    <img class="mt-3 w-40 justify-center" src={product.image_url} alt="Scanned Product">
+    <h3 class="mt-3"> Those things in { product.brands } can kill you </h3>
+    <h1 class="text-2xl py-3 font-bold">Your Allergens</h1>
+    <h6 class="bg-slate-200 rounded-xl p-1"> { crossReferenced } </h6>
 </div>
-<h3> Those things in { product.brands } can kill you </h3>
-<h6> { crossReferenced } </h6>
 {/if}
-
