@@ -1,2 +1,1 @@
-# capathon
-project for the capathon
+# itchiguana
