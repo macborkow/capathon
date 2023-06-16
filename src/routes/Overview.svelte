@@ -52,6 +52,9 @@
 	}
 
   function addAllergenToLocalStorage(allergen) {
+    if (chosenAllergens.find(item => item != allergen)) {
+      return
+    }
     chosenAllergens.push(allergen);
 		chosenAllergens = chosenAllergens;
     localStorage.setItem('allergens', JSON.stringify(chosenAllergens));
@@ -86,7 +89,7 @@
     } catch (error) {
       console.error(error);
     }
-		retrieveChosenAllergens();
+		await retrieveChosenAllergens();
 		updateAll();
   }
 
