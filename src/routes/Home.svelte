@@ -13,5 +13,13 @@
 <ProductDetail code={foundCode} />
 {/if}
 
-<a href="/productdetail">ProductDetail</a>
-<a href="/overview">Overview</a>
+<div class="floating">
+	<a href="/productdetail">ProductDetail</a>
+	<a href="/overview">Overview</a>
+</div>
+
+<style>
+	.floating {
+		position: absolute;
+	}
+</style>
