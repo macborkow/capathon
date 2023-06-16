@@ -11,14 +11,17 @@
   }
 
   function updateMatchingAllergens() {
-    matchingAllergens = getFilteredAllergens().filter((allergen) => allergen.toLowerCase().includes(allergenInput.toLowerCase()));
+    matchingAllergens = getFilteredAllergens().filter((allergen) =>
+      allergen.toLowerCase().includes(allergenInput.toLowerCase()) && allergenInput != ''
+    );
   }
 
   function addAllergenToLocalStorage(allergen) {
     chosenAllergens.push(allergen);
-    chosenAllergens = chosenAllergens;
-    localStorage.setItem("allergens", JSON.stringify(chosenAllergens));
-    updateMatchingAllergens();
+		chosenAllergens = chosenAllergens;
+    localStorage.setItem('allergens', JSON.stringify(chosenAllergens));
+    allergenInput = ''
+		updateMatchingAllergens();
   }
 
   function removeChosenAllergen(index) {
@@ -71,7 +74,9 @@
     </div>
   </div>
 {:else}
+  {#if allergenInput != ''}
   <p>No matching allergens found.</p>
+  {/if}
 {/if}
 
 {#if chosenAllergens.length > 0}
@@ -123,3 +128,4 @@
     background-color: #e6e6e6;
   }
 </style>
+		<a href="/">📷</a>
