@@ -94,7 +94,7 @@
               {allergen}
             </h2>
           </div>
-          <span class="flex items-center justify-center circle border bg-red rounded-3xl">
+          <span class="flex items-center justify-center circle border bg-red mt-1 rounded-3xl">
             <Close color="white" size="1.5em" />
           </span>
         </div>
