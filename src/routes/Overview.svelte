@@ -1,7 +1,6 @@
 <script>
   import Check from "svelte-material-icons/Check.svelte";
   import Close from "svelte-material-icons/Close.svelte";
-  import ChevronUp from "svelte-material-icons/ChevronUp.svelte";
 
   let allergenInput = "";
   let matchingAllergens = [];
@@ -59,27 +58,34 @@
   fetchData();
 </script>
 
-<h1>Your Allergens</h1>
-<input type="text" placeholder="Type an allergen..." bind:value={allergenInput} on:input={updateMatchingAllergens} />
+<div class="flex justify-center items-center flex-col">
+  <h1>Profile</h1>
+  <input class="p-2 rounded-2xl text-center" type="text" placeholder="Type an allergen..." bind:value={allergenInput} on:input={updateMatchingAllergens} />
+</div>
 {#if matchingAllergens.length > 0}
   <div class="matching-allergens">
-    <h3>Matching Allergens:</h3>
+    <h3 class="text-center p-2">Matching Allergens:</h3>
     <div>
       {#each matchingAllergens as allergen, index (allergen)}
         <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <div class="allergen-block" on:click={() => addAllergenToLocalStorage(allergen)}>
-          {allergen}
+        <div class="flex justify-between p-2 m-2 rounded-2xl bg-white">
+          <div class=" flex items-center justify-center gap-2" on:click={() => addAllergenToLocalStorage(allergen)}>
+            {allergen} 
+          </div>
+          <span class="flex items-center justify-center circle border bg-green rounded-3xl">
+            <Check color="white" size="1.5em" />
+          </span>
         </div>
       {/each}
     </div>
   </div>
 {:else if allergenInput != ""}
-  <p>No matching allergens found.</p>
+  <p class="text-center p-2">No matching allergens found.</p>
 {/if}
 
 {#if chosenAllergens.length > 0}
-  <div>
-    <h1 class="font-bold">Your Allergens</h1>
+  <div class="my-3">
+    <h1 class="font-bold text-center">Your Allergens</h1>
     <div>
       {#each chosenAllergens as allergen, index (allergen)}
         <div class="flex justify-between p-2 m-2 rounded-2xl bg-white" on:click={() => removeChosenAllergen(index)}>
@@ -98,6 +104,9 @@
 {:else}
   <p />
 {/if}
+<div class="bottom-10 absolute bottom-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+  <a class="p-2" href="/"> <span class="text-5xl">📷</span></a>
+</div>
 
 <style>
   .matching-allergens {
