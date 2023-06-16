@@ -2,6 +2,7 @@
   import svelteLogo from "./assets/svelte.svg";
   import viteLogo from "/vite.svg";
   import Counter from "./lib/Counter.svelte";
+  import Camera from "./Camera.svelte";
 </script>
 
 <main>
@@ -13,4 +14,6 @@
 
   <span class="text-brown">Example!</span>
   <span class="text-beige">This is beige text!</span>
+
+  <Camera />
 </main>
