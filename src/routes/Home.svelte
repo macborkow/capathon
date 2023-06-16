@@ -31,7 +31,7 @@
 
 <div>
 	<a href="/overview">
-		<span class="floating p-5" style="background-color: #D92F55; border-radius: 50%">
+		<span class="floating p-5" style="background-color: rgb(255, 178, 120); border-radius: 50%">
 			<Plus size="2em"/>
 		</span>
 	</a>
