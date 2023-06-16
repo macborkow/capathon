@@ -70,7 +70,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="flex justify-between p-2 m-2 rounded-2xl bg-white">
           <div class=" flex items-center justify-center gap-2" on:click={() => addAllergenToLocalStorage(allergen)}>
-            {allergen} 
+            {allergen}
           </div>
           <span class="flex items-center justify-center circle border bg-green rounded-3xl">
             <Check color="white" size="1.5em" />
@@ -94,7 +94,7 @@
               {allergen}
             </h2>
           </div>
-          <span class="flex items-center justify-center circle border bg-red rounded-3xl">
+          <span class="flex items-center justify-center circle border bg-red mt-1 rounded-3xl">
             <Close color="white" size="1.5em" />
           </span>
         </div>
@@ -104,8 +104,8 @@
 {:else}
   <p />
 {/if}
-<div class="bottom-10 absolute bottom-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-  <a class="p-2" href="/"> <span class="text-5xl">📷</span></a>
+<div class="bottom-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+  <a class="p-2" href="/"> <span class="text-3xl">📷</span></a>
 </div>
 
 <style>
