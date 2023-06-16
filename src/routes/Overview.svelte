@@ -26,7 +26,7 @@
 
   function updateMatchingAllergens() {
     matchingAllergens = getFilteredAllergens().filter((allergen) =>
-      allergen.toLowerCase().includes(allergenInput.toLowerCase())
+      allergen.toLowerCase().includes(allergenInput.toLowerCase()) && allergenInput != ''
     );
   }
 	
@@ -39,6 +39,7 @@
     chosenAllergens.push(allergen);
 		chosenAllergens = chosenAllergens;
     localStorage.setItem('allergens', JSON.stringify(chosenAllergens));
+    allergenInput = ''
 		updateMatchingAllergens();
   }
 
@@ -131,7 +132,9 @@
     </div>
   </div>
 {:else}
+  {#if allergenInput != ''}
   <p>No matching allergens found.</p>
+  {/if}
 {/if}
 
 {#if chosenAllergens.length > 0}
@@ -152,3 +155,4 @@
   <p></p>
 {/if}
 
+		<a href="/">📷</a>
