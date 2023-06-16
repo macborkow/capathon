@@ -1,9 +1,10 @@
 <script>
-  import Scanner from "../components/Scanner.svelte";
-  import ProductDetail from "../components/ProductDetail.svelte";
-	let foundCode = '';
+	import Plus from "svelte-material-icons/Plus.svelte";
+	import Scanner from "../components/Scanner.svelte";
+	import ProductDetail from "../components/ProductDetail.svelte";
+	let foundCode = "";
 	function magic(event) {
-		foundCode = event.detail.code
+		foundCode = event.detail.code;
 	}
   import { onMount } from 'svelte';
 
@@ -27,22 +28,21 @@
 	{:else}
 		<ProductDetail code={foundCode} />
 	{/if}
-  <a class="floating" href="/overview">☰</a>
+
+<div>
+	<a href="/overview">
+		<span class="floating p-5" style="background-color: #D92F55; border-radius: 50%">
+			<Plus size="2em"/>
+		</span>
+	</a>
+</div>
 
 <style>
 	.floating {
     z-index: 0;
 		position: absolute;
-		top: 0;
-		right: 0;
-		padding: 5px;
-		display: block;
-		border: solid white;
-		border-radius: 20%;
-		background: white;
-		width: 38.8px;
-		height: 38.8px;
-		text-align: center;
+		bottom: 2em;
+		right: 2em;
 	}
   .splash {
     z-index: 1;
