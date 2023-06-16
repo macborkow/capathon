@@ -1,18 +1,17 @@
 <script>
-  import Camera from "../components/Camera.svelte";
   import Scanner from "../components/Scanner.svelte";
+  import ProductDetail from "../components/ProductDetail.svelte";
+	let foundCode = '';
+	function magic(event) {
+		foundCode = event.detail.code
+	}
 </script>
 
-<Scanner />
-
-<div class="bg-green">This is green</div>
-<div class="bg-brown">
-  Hallo
-  <span class="text-peach">Example!</span>
-</div>
-
-<span class="text-brown">Example!</span>
-<span class="text-beige">This is beige text!</span>
+{#if !foundCode}
+<Scanner on:code={magic}/>
+{:else}
+<ProductDetail code={foundCode} />
+{/if}
 
 <a href="/productdetail">ProductDetail</a>
 <a href="/overview">Overview</a>

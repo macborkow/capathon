@@ -30,42 +30,23 @@
     );
   }
 	
-	let crossReferenced = [];
-	function updateAll() {
-		updateMatchingAllergens();
-		apiText = apiText.map(text => {
-			const thing = text.split(':')[1]?.trim();
-			if (thing) {
-				return thing
-			} else {
-				return text
-			}
-		});
-
-		// Convert both arrays to lowercase
-		chosenAllergens = chosenAllergens.map(allergen => allergen.toLowerCase());
-		apiText = apiText.map(text => text.toLowerCase());
-
-		// Find the common elements in the two arrays
-		const commonElements = chosenAllergens.filter(allergen => apiText.includes(allergen));
-		crossReferenced = commonElements;
-	}
-
   function addAllergenToLocalStorage(allergen) {
+    /*
     if (chosenAllergens.find(item => item != allergen)) {
       return
     }
+*/
     chosenAllergens.push(allergen);
 		chosenAllergens = chosenAllergens;
     localStorage.setItem('allergens', JSON.stringify(chosenAllergens));
-		updateAll();
+		updateMatchingAllergens();
   }
 
   function removeChosenAllergen(index) {
     chosenAllergens.splice(index, 1);
 		chosenAllergens = chosenAllergens;
     localStorage.setItem('allergens', JSON.stringify(chosenAllergens));
-		updateAll();
+		updateMatchingAllergens();
   }
 
   function retrieveChosenAllergens() {
@@ -74,7 +55,7 @@
       chosenAllergens = JSON.parse(allergens);
 			chosenAllergens = chosenAllergens;
     }
-		updateAll();
+		updateMatchingAllergens();
   }
 
 
@@ -90,7 +71,7 @@
       console.error(error);
     }
 		await retrieveChosenAllergens();
-		updateAll();
+		updateMatchingAllergens();
   }
 
 	fetchData();
@@ -125,8 +106,6 @@
     background-color: #e6e6e6;
   }
 </style>
-
-<h2 class='text-green'> {crossReferenced} </h2>
 
 <h1>Allergen Search</h1>
 <input
