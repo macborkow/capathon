@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body {
-    background: beige;
-}
-
 h1 {
     font-size: 2.5em;
 }

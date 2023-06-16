@@ -14,13 +14,14 @@
   }
 
   function updateMatchingAllergens() {
-    matchingAllergens = getFilteredAllergens().filter((allergen) => allergen.toLowerCase().includes(allergenInput.toLowerCase()));
+    matchingAllergens = getFilteredAllergens().filter((allergen) => allergen.toLowerCase().includes(allergenInput.toLowerCase()) && allergenInput != "");
   }
 
   function addAllergenToLocalStorage(allergen) {
     chosenAllergens.push(allergen);
     chosenAllergens = chosenAllergens;
     localStorage.setItem("allergens", JSON.stringify(chosenAllergens));
+    allergenInput = "";
     updateMatchingAllergens();
   }
 
@@ -72,7 +73,7 @@
       {/each}
     </div>
   </div>
-{:else}
+{:else if allergenInput != ""}
   <p>No matching allergens found.</p>
 {/if}
 
