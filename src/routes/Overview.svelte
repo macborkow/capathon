@@ -104,8 +104,8 @@
 {:else}
   <p />
 {/if}
-<div class="bottom-10 absolute bottom-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-  <a class="p-2" href="/"> <span class="text-5xl">📷</span></a>
+<div class="bottom-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+  <a class="p-2" href="/"> <span class="text-3xl">📷</span></a>
 </div>
 
 <style>
