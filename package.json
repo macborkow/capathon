@@ -22,7 +22,8 @@
     "vite": "^4.3.9"
   },
   "dependencies": {
-    "svelte-routing": "^1.10.0",
-    "@zxing/library": "^0.20.0"
+    "@zxing/library": "^0.20.0",
+    "svelte-material-icons": "^3.0.4",
+    "svelte-routing": "^1.10.0"
   }
 }
