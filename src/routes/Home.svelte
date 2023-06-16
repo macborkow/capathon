@@ -1,10 +1,9 @@
 <script>
-  import Camera from "../Camera.svelte";
-  import Scanner from "../Scanner.svelte";
+  import Camera from "../components/Camera.svelte";
+  import Scanner from "../components/Scanner.svelte";
 </script>
 
 <Scanner />
-<Camera />
 
 <div class="bg-green">This is green</div>
 <div class="bg-brown">

@@ -3,7 +3,6 @@
   import Counter from "./lib/Counter.svelte";
   import Home from "./routes/Home.svelte";
   import ProductDetail from "./routes/ProductDetail.svelte";
-  import Scanner from "./Scanner.svelte"
   export let url = "/";
 </script>
 
