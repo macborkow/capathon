@@ -1,8 +1,10 @@
 <script lang="ts">
-  import { Router, Route, navigate } from "svelte-routing";
+  import { Router, Route } from "svelte-routing";
   import Home from "./routes/Home.svelte";
   import Profile from "./routes/Profile.svelte";
   import TermsAndConditions from "./routes/TermsAndConditions.svelte";
+
+  let showPlus = true;
 </script>
 
 <Router>

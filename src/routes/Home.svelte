@@ -17,7 +17,6 @@
     setTimeout(() => {
       showSplash = false;
       if (localStorage.length === 0) {
-        console.log("first session");
         firstSession = true;
         navigate("/terms");
         // navigate("/profile");
@@ -43,9 +42,7 @@
 {#if !showSplash}
   <div class="absolute bottom-5 w-44 p-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
     <a class="flex items-center justify-center gap-2" href="/profile">
-      <div class="overlay z-10 rounded-full">
-        <Plus size="3em" />
-      </div>
+      
       <span class="text-white drop-shadow-2xl shad">See Profile </span>
       <div class="" style="background-color: rgb(255, 178, 120); border-radius: 50%">
         <Account size="1.8em" />
@@ -55,14 +52,6 @@
 {/if}
 
 <style>
-  .overlay {
-    position: fixed;
-    height: 100px;
-    width: 100px;
-    padding: 1.4em;
-    border: solid black 5px;
-    margin-bottom: 600px;
-  }
   .floating {
     z-index: 0;
     position: absolute;
