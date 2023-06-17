@@ -60,7 +60,7 @@
 
 <main class="p-4">
   <div class="flex justify-center items-center flex-col gap-4">
-    <h1 class=" rounded-xl p-4 text-2xl font-bold">Profile</h1>
+    <h1 class="px-4 mt-2 rounded-xl text-2xl font-bold">Profile</h1>
 
     <input class="p-2 rounded-2xl text-center" type="text" placeholder="Type an allergen..." bind:value={allergenInput} on:input={updateMatchingAllergens} />
   </div>
@@ -87,7 +87,7 @@
 
   <!-- {#if chosenAllergens} -->
   {#if chosenAllergens.length > 0}
-    <div class="my-3">
+    <div class="mt-5 mb-3">
       <h2 class="font-bold text-center">Your Allergens</h2>
       <div>
         {#each chosenAllergens as allergen, index (allergen)}

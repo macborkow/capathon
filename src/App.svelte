@@ -7,6 +7,8 @@
   let showPlus = true;
 </script>
 
+<img src="src\assets\itchiguana-white.png" class="absolute w-10 mt-5 ml-5" alt="Itchiguana Logo">
+
 <Router>
   <Route path="/" component={Home} />
   <Route path="/profile" component={Profile} />
