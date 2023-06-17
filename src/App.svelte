@@ -1,12 +1,12 @@
 <script lang="ts">
   import { Router, Route } from "svelte-routing";
   import Home from "./routes/Home.svelte";
-  import Overview from "./routes/Overview.svelte";
+  import Profile from "./routes/Profile.svelte";
 </script>
 
 <Router>
   <Route path="/" component={Home} />
-  <Route path="/overview" component={Overview} />
+  <Route path="/profile" component={Profile} />
 </Router>
 
 <style>
