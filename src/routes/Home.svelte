@@ -29,14 +29,16 @@
   <ProductDetail code={foundCode} />
 {/if}
 
-<div class="absolute bottom-5 w-44 p-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-  <a class="flex items-center justify-center gap-2" href="/overview">
-    <span class="text-white drop-shadow-2xl shad"> See Profile </span>
-    <div class="" style="background-color: rgb(255, 178, 120); border-radius: 50%">
-      <Plus size="2em" />
-    </div>
-  </a>
-</div>
+{#if !showSplash}
+  <div class="absolute bottom-5 w-44 p-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <a class="flex items-center justify-center gap-2" href="/profile">
+      <span class="text-white drop-shadow-2xl shad"> See Profile </span>
+      <div class="" style="background-color: rgb(255, 178, 120); border-radius: 50%">
+        <Plus size="2em" />
+      </div>
+    </a>
+  </div>
+{/if}
 
 <style>
   .floating {

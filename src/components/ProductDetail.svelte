@@ -46,8 +46,10 @@
       <h1 class="text-green font-bold">{product.brands}</h1>
       <img class="rounded-lg justify-center" src={product.image_url} alt="Scanned Product" />
       {#if crossReferenced.length !== 0}
-        <p class="bg-white rounded py-2 m-2">The ingredients in {product.brands} can contain allergens to you.</p>
-        {crossReferenced}
+        <p class="bg-white rounded p-4 m-2">The ingredients in {product.brands} can contain allergens to you.</p>
+        <span class="bg-white p-2 rounded">
+          {crossReferenced}
+        </span>
       {/if}
       {#if crossReferenced.length === 0}
         <p class="bg-white rounded p-4 text-center">There are no known allergens related to <span class="font-bold">{product.brands}</span> based on your profile.</p>
