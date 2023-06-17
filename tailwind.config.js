@@ -4,7 +4,11 @@ export default {
     "./src/**/*.{html,svelte,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
+    extend: 
+    {
+      fontFamily: {
+      sans: ['Poppins'],
+    },    
       container: {
         margin: '2em',
         center: true,

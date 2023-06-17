@@ -39,24 +39,25 @@
   fetchData();
 </script>
 
-{#if product}
-  <div class="py-4 mx-3 flex flex-col justify-center items-center gap-4">
-    <h1 class="bg-slate-200 rounded-xl p-1 text-2xl font-bold">Product</h1>
-    <h1 class="text-green font-bold">{product.brands}</h1>
-    <img class="mt-3 w-40 justify-center" src={product.image_url} alt="Scanned Product" />
-    {#if crossReferenced.length !== 0}
-      <p class="bg-white rounded p-2 m-2">The ingredients in {product.brands} can kill you</p>
-    {/if}
-    {#if crossReferenced.length === 0}
-      <p class="bg-white rounded p-2">There are no known allergens related to this product.</p>
-    {/if}
+<main class="p-4">
+  {#if product}
+    <div class="py-4 mx-3 flex flex-col justify-center items-center gap-4">
+      <h1 class="rounded-xl p-4 text-2xl font-bold">Product</h1>
+      <h1 class="text-green font-bold">{product.brands}</h1>
+      <img class="rounded-lg justify-center" src={product.image_url} alt="Scanned Product" />
+      {#if crossReferenced.length !== 0}
+        <p class="bg-white rounded py-2 m-2">The ingredients in {product.brands} can contain allergens to you.</p>
+        {crossReferenced}
+      {/if}
+      {#if crossReferenced.length === 0}
+        <p class="bg-white rounded p-4 text-center">There are no known allergens related to <span class="font-bold">{product.brands}</span> based on your profile.</p>
+      {/if}
+    </div>
+  {/if}
+</main>
 
-    <h1 class="text-2xl py-3 font-bold">Profile</h1>
-    {#if crossReferenced.length !== 0}
-      <h6 class="bg-slate-200 rounded-xl p-2 font-bold">{crossReferenced}</h6>
-    {/if}
-  </div>
-{/if}
-<div class="bottom-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-    <a class="p-2" href="/"> <span class="text-3xl">📷</span></a>
-</div>
+<style>
+  img {
+    max-width: 120px;
+  }
+</style>

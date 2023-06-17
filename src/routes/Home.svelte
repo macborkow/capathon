@@ -29,11 +29,12 @@
   <ProductDetail code={foundCode} />
 {/if}
 
-<div>
-  <a href="/overview">
-    <span class="floating p-5" style="background-color: rgb(255, 178, 120); border-radius: 50%">
+<div class="absolute bottom-5 w-44 p-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+  <a class="flex items-center justify-center gap-2" href="/overview">
+    <span class="text-white drop-shadow-2xl shad"> See Profile </span>
+    <div class="" style="background-color: rgb(255, 178, 120); border-radius: 50%">
       <Plus size="2em" />
-    </span>
+    </div>
   </a>
 </div>
 
