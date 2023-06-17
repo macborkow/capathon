@@ -85,6 +85,7 @@
     <p class="text-center p-2">No matching allergens found.</p>
   {/if}
 
+  <!-- {#if chosenAllergens} -->
   {#if chosenAllergens.length > 0}
     <div class="my-3">
       <h2 class="font-bold text-center">Your Allergens</h2>
@@ -104,7 +105,9 @@
       </div>
     </div>
   {:else}
-    <p />
+    {#if allergenInput === ""}
+    <div class="bg-white rounded-xl p-2 my-5">Please add at least 1 allergen to your profile.</div>
+    {/if}
   {/if}
 
   <div class="absolute bottom-5 w-44 p-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">

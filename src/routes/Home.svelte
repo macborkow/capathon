@@ -1,4 +1,5 @@
 <script>
+  import Account from "svelte-material-icons/account.svelte";
   import Plus from "svelte-material-icons/Plus.svelte";
   import Scanner from "../components/Scanner.svelte";
   import ProductDetail from "../components/ProductDetail.svelte";
@@ -7,12 +8,21 @@
     foundCode = event.detail.code;
   }
   import { onMount } from "svelte";
+  import { navigate } from "svelte-routing";
 
   let showSplash = true;
+  let firstSession = false;
 
   onMount(() => {
     setTimeout(() => {
       showSplash = false;
+      if (localStorage.length === 0) {
+        firstSession = true;
+        navigate("/terms");
+        // navigate("/profile");
+      } else {
+        firstSession = false;
+      }
     }, 2000);
   });
 </script>
@@ -32,9 +42,10 @@
 {#if !showSplash}
   <div class="absolute bottom-5 w-44 p-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
     <a class="flex items-center justify-center gap-2" href="/profile">
-      <span class="text-white drop-shadow-2xl shad"> See Profile </span>
+      
+      <span class="text-white drop-shadow-2xl shad">See Profile </span>
       <div class="" style="background-color: rgb(255, 178, 120); border-radius: 50%">
-        <Plus size="2em" />
+        <Account size="1.8em" />
       </div>
     </a>
   </div>

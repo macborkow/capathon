@@ -2,11 +2,15 @@
   import { Router, Route } from "svelte-routing";
   import Home from "./routes/Home.svelte";
   import Profile from "./routes/Profile.svelte";
+  import TermsAndConditions from "./routes/TermsAndConditions.svelte";
+
+  let showPlus = true;
 </script>
 
 <Router>
   <Route path="/" component={Home} />
   <Route path="/profile" component={Profile} />
+  <Route path="/terms" component={TermsAndConditions} />
 </Router>
 
 <style>
