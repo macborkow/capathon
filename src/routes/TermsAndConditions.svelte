@@ -3,10 +3,9 @@
 </script>
 
 <main class="px-3">
-  <div class="text-center">Terms and conditions</div>
-  <h1>Terms and Conditions</h1>
+  <h1 class="text-center">Terms and Conditions</h1>
 
-  <div class="overflow-auto summary w-9/12">
+  <div class="overflow-auto summary w-9/12 m-2 mx-auto">
     <section>
       <h2>Accuracy Disclaimer</h2>
       <p class="break-words inline-block">
