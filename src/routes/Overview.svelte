@@ -58,55 +58,62 @@
   fetchData();
 </script>
 
-<div class="flex justify-center items-center flex-col">
-  <h1>Profile</h1>
-  <input class="p-2 rounded-2xl text-center" type="text" placeholder="Type an allergen..." bind:value={allergenInput} on:input={updateMatchingAllergens} />
-</div>
-{#if matchingAllergens.length > 0}
-  <div class="matching-allergens">
-    <h3 class="text-center p-2">Matching Allergens:</h3>
-    <div>
-      {#each matchingAllergens as allergen, index (allergen)}
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
-        <div class="flex justify-between p-2 m-2 rounded-2xl bg-white">
-          <div class=" flex items-center justify-center gap-2" on:click={() => addAllergenToLocalStorage(allergen)}>
-            {allergen}
-          </div>
-          <span class="flex items-center justify-center circle border bg-green rounded-3xl">
-            <Check color="white" size="1.5em" />
-          </span>
-        </div>
-      {/each}
-    </div>
-  </div>
-{:else if allergenInput != ""}
-  <p class="text-center p-2">No matching allergens found.</p>
-{/if}
+<main class="p-4">
+  <div class="flex justify-center items-center flex-col gap-4">
+    <h1 class=" rounded-xl p-4 text-2xl font-bold">Profile</h1>
 
-{#if chosenAllergens.length > 0}
-  <div class="my-3">
-    <h1 class="font-bold text-center">Your Allergens</h1>
-    <div>
-      {#each chosenAllergens as allergen, index (allergen)}
-        <div class="flex justify-between p-2 m-2 rounded-2xl bg-white" on:click={() => removeChosenAllergen(index)}>
-          <div class="flex items-center justify-center gap-2">
-            <h2>
-              {allergen}
-            </h2>
-          </div>
-          <span class="flex items-center justify-center circle border bg-red mt-1 rounded-3xl">
-            <Close color="white" size="1.5em" />
-          </span>
-        </div>
-      {/each}
-    </div>
+    <input class="p-2 rounded-2xl text-center" type="text" placeholder="Type an allergen..." bind:value={allergenInput} on:input={updateMatchingAllergens} />
   </div>
-{:else}
-  <p />
-{/if}
-<div class="bottom-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-  <a class="p-2" href="/"> <span class="text-3xl">📷</span></a>
-</div>
+  {#if matchingAllergens.length > 0}
+    <div class="matching-allergens">
+      <h3 class="text-center p-2">Matching Allergens:</h3>
+      <div>
+        {#each matchingAllergens as allergen, index (allergen)}
+          <!-- svelte-ignore a11y-click-events-have-key-events -->
+          <div class="flex justify-between p-2 m-2 rounded-2xl bg-white" on:click={() => addAllergenToLocalStorage(allergen)}>
+            <div class=" flex items-center justify-center gap-2">
+              {allergen}
+            </div>
+            <span class="flex items-center justify-center circle border bg-green rounded-3xl">
+              <Check color="white" size="1.5em" />
+            </span>
+          </div>
+        {/each}
+      </div>
+    </div>
+  {:else if allergenInput != ""}
+    <p class="text-center p-2">No matching allergens found.</p>
+  {/if}
+
+  {#if chosenAllergens.length > 0}
+    <div class="my-3">
+      <h2 class="font-bold text-center">Your Allergens</h2>
+      <div>
+        {#each chosenAllergens as allergen, index (allergen)}
+          <div class="flex justify-between p-2 m-2 rounded-2xl bg-white" on:click={() => removeChosenAllergen(index)}>
+            <div class="flex items-center justify-center gap-2">
+              <h2>
+                {allergen}
+              </h2>
+            </div>
+            <span class="flex items-center justify-center circle border bg-red mt-1 rounded-3xl">
+              <Close color="white" size="1.5em" />
+            </span>
+          </div>
+        {/each}
+      </div>
+    </div>
+  {:else}
+    <p />
+  {/if}
+
+  <div class="absolute bottom-5 w-44 p-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <a class="flex items-center justify-center gap-2" href="/">
+      <span class="text-white drop-shadow-2xl shad mt-1"> New scan </span>
+      <a href="/"> <span class="text-3xl">📷</span></a>
+    </a>
+  </div>
+</main>
 
 <style>
   .matching-allergens {
