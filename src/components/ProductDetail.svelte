@@ -27,8 +27,13 @@
   }
   async function fetchData() {
     try {
-      const response = await fetch(`https://cors-anywhere.herokuapp.com/https://world.openfoodfacts.org/api/2/product/${code}`);
-      const data = await response.json();
+      let response = await fetch(`https://cors-anywhere.herokuapp.com/https://world.openfoodfacts.org/api/2/product/${code}`);
+      let data = await response.json();
+      console.log(data)
+      if (data.status_verbose == "product not found") {
+        response = await fetch(`https://cors-anywhere.herokuapp.com/https://ssl-api.openbeautyfacts.org/api/v0/product/${code}`);
+        data = await response.json();
+      }
       product = data.product;
       apiText = product.allergens_tags;
       findCrossAllergens();
