@@ -66,7 +66,7 @@
   </div>
   {#if matchingAllergens.length > 0}
     <div class="matching-allergens">
-      <h3 class="text-center p-2">Matching Allergens:</h3>
+      <h1 class="text-center text-2xl font-bold p-2">Matching Allergens:</h1>
       <div>
         {#each matchingAllergens as allergen, index (allergen)}
           <!-- svelte-ignore a11y-click-events-have-key-events -->
