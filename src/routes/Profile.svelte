@@ -112,7 +112,7 @@
 
   <div class="absolute bottom-5 w-44 p-2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
     <a class="flex items-center justify-center gap-2" href="/">
-      <span class="text-white drop-shadow-2xl shad mt-1"> New scan </span>
+      <span class="text-white drop-shadow-2xl shad mt-2"> New scan </span>
       <a href="/"> <span class="text-3xl">📷</span></a>
     </a>
   </div>
