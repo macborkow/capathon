@@ -6,7 +6,7 @@
   let matchingAllergens = [];
   let chosenAllergens = [];
 
-  const allergens = ["Milk", "Gluten", "Soybeans", "Eggs", "Nuts", "Fish", "Mustard", "Celery", "Peanuts", "Sulphur dioxide and sulphites", "Sesame seeds", "Crustaceans", "Molluscs", "Lupin"];
+  const allergens = ["Parfum", "Milk", "Gluten", "Soybeans", "Eggs", "Nuts", "Fish", "Mustard", "Celery", "Peanuts", "Sulphur dioxide and sulphites", "Sesame seeds", "Crustaceans", "Molluscs", "Lupin"];
 
   function getFilteredAllergens() {
     return allergens.filter((el) => !chosenAllergens.includes(el));
